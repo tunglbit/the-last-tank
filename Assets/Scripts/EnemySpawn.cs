@@ -37,7 +37,7 @@ public class EnemySpawn : MonoBehaviour
                 // randX = Random.Range(-17f, 16f);
                 // randY = Random.Range(8f, -9f);
                 whereToSpawn = spawnPosition[count];
-                Instantiate(enemy, whereToSpawn, Quaternion.identity);
+                GameObject newEnemy = (GameObject) Instantiate(enemy, whereToSpawn, Quaternion.identity);
                 count++;
             }
         }

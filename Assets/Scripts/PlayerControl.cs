@@ -15,22 +15,29 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if(Input.GetKey(KeyCode.RightArrow)){
-			transform.rotation = Quaternion.Euler (0, 0, 0);
+			transform.rotation = Quaternion.Euler (0, 0, -90);
 			transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
 		}
 		else if(Input.GetKey(KeyCode.LeftArrow)){
-			transform.rotation = Quaternion.Euler (0, 0, 180);
+			transform.rotation = Quaternion.Euler (0, 0, 90);
 			transform.position -= new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
 		}
 		else if(Input.GetKey(KeyCode.UpArrow)){
-			transform.rotation = Quaternion.Euler (0, 0, 90);
+			transform.rotation = Quaternion.Euler (0, 0, 0);
 			transform.position += new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
 		}
 		else if(Input.GetKey(KeyCode.DownArrow)){
-			transform.rotation = Quaternion.Euler (0, 0, -90);
+			transform.rotation = Quaternion.Euler (0, 0, -180);
 			transform.position -= new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
 		}
+
+		// float x = Input.GetAxis("Horizontal") * Time.deltaTime * 150f;
+		// float y = Input.GetAxis("Vertical") * Time.deltaTime * 3f;
+
+		// transform.Rotate (0, 0, -x);
+		// transform.Translate (0, y, 0);
 
 		if(Input.GetKeyDown(KeyCode.Space)) {
 			Fire();
