@@ -31,12 +31,12 @@ public class EnemySpawn : MonoBehaviour
     {
         if (Time.time > nextSpawn)
         {
-            if (count < spawnPosition.Length)
+            if (count < 12)
             {
                 nextSpawn = Time.time + spawnRate;
                 // randX = Random.Range(-17f, 16f);
                 // randY = Random.Range(8f, -9f);
-                whereToSpawn = spawnPosition[count];
+                whereToSpawn = spawnPosition[count % spawnPosition.Length];
                 GameObject newEnemy = (GameObject) Instantiate(enemy, whereToSpawn, Quaternion.identity);
                 count++;
             }
