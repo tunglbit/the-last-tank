@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public Transform firePoint;
 	Rigidbody2D rb2D;
+	public AudioSource shootingAudio;
 	void Start () {
 		rb2D = GetComponent<Rigidbody2D>();
 	}
@@ -46,6 +47,7 @@ public class PlayerControl : MonoBehaviour {
 
 	public void Fire(){
 		GameObject bulletIns = Instantiate (bulletPrefab, firePoint.position, firePoint.rotation) as GameObject;
+		shootingAudio.Play();
 		bulletIns.GetComponent<Rigidbody2D> ().velocity = bulletIns.transform.up * 10;
 		Destroy (bulletIns, 3);
 	}
