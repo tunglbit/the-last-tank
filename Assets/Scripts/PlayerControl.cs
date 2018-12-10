@@ -10,6 +10,9 @@ public class PlayerControl : MonoBehaviour {
 	public Transform firePoint;
 	Rigidbody2D rb2D;
 	public AudioSource shootingAudio;
+	public AudioSource movementAudio;    
+    public AudioClip idlingClip;       
+    public AudioClip drivingClip;
 	void Start () {
 		rb2D = GetComponent<Rigidbody2D>();
 	}
@@ -20,18 +23,25 @@ public class PlayerControl : MonoBehaviour {
 		if(Input.GetKey(KeyCode.RightArrow)){
 			transform.rotation = Quaternion.Euler (0, 0, -90);
 			transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
+			ChangeToDrivingAudio();
 		}
 		else if(Input.GetKey(KeyCode.LeftArrow)){
 			transform.rotation = Quaternion.Euler (0, 0, 90);
 			transform.position -= new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
+			ChangeToDrivingAudio();
 		}
 		else if(Input.GetKey(KeyCode.UpArrow)){
 			transform.rotation = Quaternion.Euler (0, 0, 0);
 			transform.position += new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
+			ChangeToDrivingAudio();
 		}
 		else if(Input.GetKey(KeyCode.DownArrow)){
 			transform.rotation = Quaternion.Euler (0, 0, -180);
 			transform.position -= new Vector3(0.0f, speed * Time.deltaTime, 0.0f);
+			ChangeToDrivingAudio();
+		}
+		else {
+			ChangeToIdlingAudio();
 		}
 
 		// float x = Input.GetAxis("Horizontal") * Time.deltaTime * 150f;
@@ -42,6 +52,19 @@ public class PlayerControl : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.Space)) {
 			Fire();
+		}
+	}
+
+	void ChangeToDrivingAudio() {
+		if(movementAudio.clip == idlingClip) {
+			movementAudio.clip = drivingClip;
+			movementAudio.Play();
+		}
+	}
+	void ChangeToIdlingAudio() {
+		if(movementAudio.clip == drivingClip) {
+			movementAudio.clip = idlingClip;
+			movementAudio.Play();
 		}
 	}
 
