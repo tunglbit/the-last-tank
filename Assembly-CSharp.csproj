@@ -156,7 +156,9 @@
      <Compile Include="Assets\Scripts\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PlayerDamaged.cs" />
+     <Compile Include="Assets\Scripts\TankManager.cs" />
      <Compile Include="Assets\Scripts\TargetDamaged.cs" />
+     <Compile Include="Assets\TimeManager.cs" />
      <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\dependencies.txt" />

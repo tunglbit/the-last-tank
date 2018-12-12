@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour {
 	public AudioSource movementAudio;    
     public AudioClip idlingClip;       
     public AudioClip drivingClip;
+
+	public int count;
 	void Start () {
 		rb2D = GetComponent<Rigidbody2D>();
 	}

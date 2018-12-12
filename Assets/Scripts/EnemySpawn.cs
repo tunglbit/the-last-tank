@@ -11,7 +11,7 @@ public class EnemySpawn : MonoBehaviour
     Vector2 whereToSpawn;
     private float spawnRate = 10f;
     float nextSpawn = 0.0f;
-    int count = 0;
+    private int count = 0;
 
     Vector2[] spawnPosition;
 
@@ -21,9 +21,9 @@ public class EnemySpawn : MonoBehaviour
     {
         spawnPosition = new Vector2[4];
         spawnPosition[0] = new Vector2(-16, 7);
-        spawnPosition[1] = new Vector2(15, 7);
+        spawnPosition[1] = new Vector2(9, 7);
         spawnPosition[2] = new Vector2(-16, -8);
-        spawnPosition[3] = new Vector2(15, -8);
+        spawnPosition[3] = new Vector2(9, -8);
     }
 
     // Update is called once per frame
@@ -41,6 +41,5 @@ public class EnemySpawn : MonoBehaviour
                 count++;
             }
         }
-
     }
 }

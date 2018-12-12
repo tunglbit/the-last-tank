@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TargetDamaged : MonoBehaviour
@@ -10,6 +11,8 @@ public class TargetDamaged : MonoBehaviour
     public GameObject explosionPrefab;
     private AudioSource explosionAudio;
     private ParticleSystem explosionParticles;
+
+    public Text text;
 
     [HideInInspector]
     public Boolean isDead;
@@ -52,4 +55,5 @@ public class TargetDamaged : MonoBehaviour
     {
 
     }
+
 }

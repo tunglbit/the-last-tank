@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDamaged : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerDamaged : MonoBehaviour
     private AudioSource explosionAudio;
     private ParticleSystem explosionParticles;
     public Boolean isDead;
+    public Text hitPointText;
 
     void Awake()
     {
@@ -23,6 +25,7 @@ public class PlayerDamaged : MonoBehaviour
     {
         isDead = false;
         currentHitPoints = hitPoints;
+        hitPointText.text = "Hit Points: " + currentHitPoints.ToString();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -30,6 +33,12 @@ public class PlayerDamaged : MonoBehaviour
         if (col.tag.Equals("EnemyBullet"))
         {
             currentHitPoints--;
+            hitPointText.text = "Hit Points: " + currentHitPoints.ToString();
+            Destroy(col.gameObject);
+        } else if(col.tag.Equals("BossBullet"))
+        {
+            currentHitPoints-=3;
+            hitPointText.text = "Hit Points: " + currentHitPoints.ToString();
             Destroy(col.gameObject);
         }
         if (currentHitPoints <= 0)
@@ -41,6 +50,7 @@ public class PlayerDamaged : MonoBehaviour
             explosionParticles.Play();
             explosionAudio.Play();
             Destroy(gameObject);
+            Time.timeScale = 0;
         }
     }
 
