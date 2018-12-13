@@ -12,18 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Round1Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Round2Scene.unity
-    guid: a349aeea150e89e48bf095bdaa54ab06
-  - enabled: 1
     path: Assets/Scenes/CompleteRound1Scene.unity
     guid: 4b9a1489a780a8141a536181b68aaa50
+  - enabled: 1
+    path: Assets/Scenes/Round2Scene.unity
+    guid: a349aeea150e89e48bf095bdaa54ab06
   - enabled: 1
     path: Assets/Scenes/CompleteRound2Scene.unity
     guid: 9cd332fe3440cd94dbd0b5637da14abe
   - enabled: 1
-    path: Assets/Scenes/CompleteRound3Scene.unity
-    guid: e2fd44f06816acf43bdea96c2ac7401d
-  - enabled: 1
     path: Assets/Scenes/Round3Scene.unity
     guid: 52d2626a4ee144f46aea6efe9114b2e1
+  - enabled: 1
+    path: Assets/Scenes/CompleteRound3Scene.unity
+    guid: e2fd44f06816acf43bdea96c2ac7401d
   m_configObjects: {}
