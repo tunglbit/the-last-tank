@@ -12,8 +12,6 @@ public class TargetDamaged : MonoBehaviour
     private AudioSource explosionAudio;
     private ParticleSystem explosionParticles;
 
-    public Text text;
-
     [HideInInspector]
     public Boolean isDead;
 
@@ -48,12 +46,6 @@ public class TargetDamaged : MonoBehaviour
             explosionAudio.Play();
             Destroy(gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
 }

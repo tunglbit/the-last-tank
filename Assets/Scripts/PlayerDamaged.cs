@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamaged : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class PlayerDamaged : MonoBehaviour
     public GameObject explosionPrefab;
     private AudioSource explosionAudio;
     private ParticleSystem explosionParticles;
-    public Boolean isDead;
+    private Boolean isDead;
     public Text hitPointText;
+    private TimeManager timeManager;
 
     void Awake()
     {
@@ -23,6 +25,7 @@ public class PlayerDamaged : MonoBehaviour
 
     void Start()
     {
+        timeManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimeManager>();
         isDead = false;
         currentHitPoints = hitPoints;
         hitPointText.text = "Hit Points: " + currentHitPoints.ToString();
@@ -37,26 +40,22 @@ public class PlayerDamaged : MonoBehaviour
             Destroy(col.gameObject);
         } else if(col.tag.Equals("BossBullet"))
         {
-            currentHitPoints-=3;
+            currentHitPoints-=2;
             hitPointText.text = "Hit Points: " + currentHitPoints.ToString();
             Destroy(col.gameObject);
         }
         if (currentHitPoints <= 0)
         {
+            currentHitPoints = 0;
+            hitPointText.text = "Hit Points: " + currentHitPoints.ToString();
             explosionPrefab = (GameObject)Instantiate(explosionPrefab, transform.position, transform.rotation);
             isDead = true;
             explosionParticles.transform.position = transform.position;
             explosionParticles.gameObject.SetActive(true);
             explosionParticles.Play();
             explosionAudio.Play();
+            timeManager.playerisDead = true;
             Destroy(gameObject);
-            Time.timeScale = 0;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

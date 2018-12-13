@@ -11,6 +11,7 @@ TagManager:
   - Background
   - BossBullet
   - Boss
+  - GameManager
   layers:
   - Default
   - TransparentFX
